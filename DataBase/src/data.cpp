@@ -26,7 +26,7 @@ public:
 	void getDateNumber();
 	void select();
 	DataBase() {
-	    cout << "Áàçà äàííûõ 9 Á" << endl;
+	    cout << "Ð‘Ð°Ð·Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ… 9 Ð‘" << endl;
 		checkPassword();
 	}
 };
@@ -54,13 +54,13 @@ void DataBase::setDate() {
 }
 
 int DataBase::checkPassword() {
-	cout << "Ââåäèòå ïàðîëü >> ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ >> ";
 	cin >> password_;
 
     if(password_ == "Mirror")
-		cout<< "Äîñòóï ðàçðåø¸í" <<endl;
+		cout<< "Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ñ€Ð°Ð·Ñ€ÐµÑˆÑ‘Ð½" <<endl;
 	else {
-		cout << "Äîñòóï çàêðûò" << endl;
+		cout << "Ð”Ð¾ÑÑ‚ÑƒÐ¿ Ð·Ð°ÐºÑ€Ñ‹Ñ‚" << endl;
 		exit(1);
 	}
 }
