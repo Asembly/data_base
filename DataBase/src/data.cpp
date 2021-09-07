@@ -61,7 +61,7 @@ int DataBase::checkPassword() {
 		cout<< "Доступ разрешён" <<endl;
 	else {
 		cout << "Доступ закрыт" << endl;
-		exit(1);
+		exit(10);
 	}
 }
 
