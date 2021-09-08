@@ -80,17 +80,15 @@ void DataBase::select()
 
 void DataBase::dataout()
 {
-	int a = 0;
-	int b = 0;
 	getDateName();
-	for (a; a < dataout_; a++)
+	for (a = 0 ; a < dataout_; a++)
 	{
 		getline(inputBase_, names_);
 	}
 	cout << endl << "<< " << names_ << " >>" << endl;
 	inputBase_.close();
 	getDateNumber();
-	for (b; b < dataout_; b++)
+	for (b = 0; b < dataout_; b++)
 	{
 		getline(inputBase_, numbers_);
 	}
