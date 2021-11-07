@@ -9,21 +9,23 @@ private:
 	ifstream inputBase_ = {};
 	ofstream outputBase_ = {};
 
-	const string PATH_name = "dataTeacher";
-	const string PATH_number = "numbersTeacher";
-	string password_;
-	string names_;
-	string numbers_;
-
 	int numberTeacher_ = 0;
 	int dataout_ = 0;
-
-	int checkPassword();
-	void setDate();
+	int adddataTeacher_ = 0;
+	string password;
+	const string PATH_name = "dataTeacher";
+	const string PATH_number = "numbersTeacher";
+	const string PATH_addinfo = "addinfoTeacher";
+	const string password_ = "Mirror";
+	string names_;
+	string numbers_;
+	string addinfo_;
 public:
+	int checkPassword();
 	void dataout();
-	void getDateName();
-	void getDateNumber();
+	void getDataName();
+	void getDataNumber();
+	void getAddData();
 	void select();
 	DataBase() {
 	    cout << "База данных 9 Б" << endl;
@@ -31,7 +33,7 @@ public:
 	}
 };
 
-void DataBase::getDateName() {
+void DataBase::getDataName() {
 	inputBase_.open(PATH_name);
 	if (!inputBase_.is_open()) {
 		exit(1);
@@ -40,7 +42,7 @@ void DataBase::getDateName() {
 		}
 	}
 
-void DataBase::getDateNumber() {
+void DataBase::getDataNumber() {
 	inputBase_.open(PATH_number);
 	if (!inputBase_.is_open()) {
 		exit(2);
@@ -49,15 +51,20 @@ void DataBase::getDateNumber() {
 	}
 }
 
-void DataBase::setDate() {
-	
+void DataBase::getAddData() {
+	inputBase_.open(PATH_addinfo);
+	if (!inputBase_.is_open()) {
+		exit(3);
+	}
+	else {
+	}
 }
 
 int DataBase::checkPassword() {
 	cout << "Введите пароль >> ";
-	cin >> password_;
+	cin >> password;
 
-    if(password_ == "Mirror")
+    if(password == password_)
 		cout<< "Доступ разрешён" <<endl;
 	else {
 		cout << "Доступ закрыт" << endl;
@@ -68,7 +75,7 @@ int DataBase::checkPassword() {
 void DataBase::select()
 {
 	int indexer_ = 1;
-	getDateName();
+	getDataName();
 	while (!inputBase_.eof()) 
 	{
 		getline(inputBase_, names_);
@@ -80,26 +87,33 @@ void DataBase::select()
 
 void DataBase::dataout()
 {
-	getDateName();
-	for (a = 0 ; a < dataout_; a++)
+	getDataName();
+	for (int a = 0 ; a < dataout_; a++)
 	{
 		getline(inputBase_, names_);
 	}
 	cout << endl << "<< " << names_ << " >>" << endl;
 	inputBase_.close();
-	getDateNumber();
-	for (b = 0; b < dataout_; b++)
+	getDataNumber();
+	for (int b = 0; b < dataout_; b++)
 	{
 		getline(inputBase_, numbers_);
 	}
-	cout << "<< " << numbers_ << " >>" << "\n\n";
+	cout << "<< " << numbers_ << " >>" << endl;
+	inputBase_.close();
+	getAddData();
+	for (int c = 0; c < dataout_; c++)
+	{
+		getline(inputBase_, addinfo_);
+	}
+	cout << "<< " << addinfo_ << " >>" << "\n\n";
 	inputBase_.close();
 	dataout_ = 0;
 }
 
 int main() 
 {
-	setlocale(LC_ALL, "ru");
+	setlocale(LC_ALL, "");
 	DataBase dataBase = {};
 	while (true)
 	{
